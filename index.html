@@ -2,13 +2,13 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="1800;url=https://p.ya.ru/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Автообновление</title>
     <style>
         * {
             margin: 0;
             padding: 0;
+            -webkit-box-sizing: border-box;
             box-sizing: border-box;
         }
         
@@ -16,6 +16,7 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
+            -webkit-overflow-scrolling: touch;
         }
         
         iframe {
@@ -25,10 +26,17 @@
             width: 100%;
             height: 100%;
             border: none;
+            display: block;
         }
     </style>
 </head>
 <body>
-    <iframe src="https://p.ya.ru/"></iframe>
+    <iframe id="content" src="https://p.ya.ru/" allowfullscreen></iframe>
+    <script>
+        setInterval(function() {
+            var iframe = document.getElementById('content');
+            iframe.src = iframe.src;
+        }, 60000);
+    </script>
 </body>
 </html>
